@@ -6,7 +6,7 @@ import type { InferGetServerSidePropsType, NextPage } from "next";
 import Head from "next/head";
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
-import * as doorlist from "./doorlist";
+import * as doorlist from "../components/doorlist";
 import { useTheme } from "@chakra-ui/react";
 import { useColorMode, ColorModeScript } from "@chakra-ui/react";
 
@@ -74,7 +74,7 @@ export async function getServerSideProps(context: any) {
   const expectedSignMessage = `I want to enter the lounge. Fake one-time access code: ${reqAccessResp}`;
 
   const walletAddress = verifyMessage(expectedSignMessage, signature);
-  if (doorlist.checkWalletMembership().toString() == "") {
+  if (doorlist.CheckWalletMembership().toString() == "") {
     return {
       redirect: {
         destination: "/?denied=true",

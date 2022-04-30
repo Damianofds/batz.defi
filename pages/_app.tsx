@@ -2,7 +2,7 @@ import type { AppProps } from "next/app";
 import { Web3ReactProvider } from "@web3-react/core";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Web3Provider } from "@ethersproject/providers";
-import theme from "./Theme";
+import theme from "../components/Theme";
 
 function getLibrary(provider: any): Web3Provider {
   const library = new Web3Provider(provider, "any");

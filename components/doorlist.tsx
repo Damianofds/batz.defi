@@ -12,7 +12,7 @@ export const NFT_TOKEN_ID_MEMBERSHIP_LIST = [NFT_TOKEN_ID_DEFIBAT_PILOT_1, NFT_T
 
 export const MEMBERSHIP_NFT_TOKEN_COUNT = 1;
 
-export async function checkWalletMembership() {
+export async function CheckWalletMembership() {
 
     const { account, library, activate } = useWeb3React();
     // get the connected wallet as a signer

@@ -13,7 +13,7 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import React, { useCallback, useState } from "react";
-import * as doorlist from "./doorlist";
+import * as doorlist from "../components/doorlist";
 import { useTheme } from "@chakra-ui/react";
 import { useColorMode, ColorModeScript } from "@chakra-ui/react";
 
@@ -33,7 +33,7 @@ const useWalletMembershipAccess = () => {
 
   if (library && account) {
     // Check wallet for membership nft then update the state.
-    var token = doorlist.checkWalletMembership().toString();
+    var token = doorlist.CheckWalletMembership().toString();
     if (token != ""){
       setAccess;
       return token;
