@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import Home from "./Home";
 import reportWebVitals from "./reportWebVitals";
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
-import GitHubLink from "../src/GitHubLink";
+import GitHubLink from "./GitHubLink";
 
 // This is the chainId your dApp will work on.
 const activeChainId = ChainId.Mumbai;
@@ -11,7 +11,7 @@ const activeChainId = ChainId.Mumbai;
 ReactDOM.render(
   <React.StrictMode>
     <ThirdwebProvider desiredChainId={activeChainId}>
-      <App />
+      <Home />
       <GitHubLink />
     </ThirdwebProvider>
   </React.StrictMode>,

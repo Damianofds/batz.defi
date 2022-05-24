@@ -8,14 +8,13 @@ import {
 } from "@thirdweb-dev/react";
 
 import { useState, useEffect } from "react";
-import "./styles.css";
 
 // truncates the address so it displays in a nice format
 function truncateAddress(address) {
   return `${address.slice(0, 6)}...${address.slice(-4)}`;
 }
 
-export default function App() {
+export default function Home() {
   // allow user to connect to app with metamask, and obtain address
   const address = useAddress();
   const connectWithMetamask = useMetamask();
@@ -85,7 +84,7 @@ export default function App() {
   //if there isn't a wallet connected, display our connect MetaMask button
   if (!address) {
     return (
-      <div className="container">
+      <div className="container" id="root">
         <h1>🦇 batz.defi NFT Lounge 🕸️</h1>
         <h1>🍸🦐 🚬</h1>
         <h2> Own one of the batz,<br />get access to the cave.</h2>
@@ -98,7 +97,7 @@ export default function App() {
 
   if (checking) {
     return (
-      <div className="container">
+      <div className="container" id="root">
         <h1>🦇 batz.defi NFT Lounge 🕸️</h1>
         <h1>🍸🦐 🚬</h1>
         <h1>Checking your wallet...</h1>
@@ -109,7 +108,7 @@ export default function App() {
   // if the user is connected and has an NFT from the drop, display text
   if (hasClaimedNFT) {
     return (
-      <div className="container"v>
+      <div className="container" id="root">
         <h1>🦇 batz.defi NFT Lounge 🕸️</h1>
         <h1>🍸🦐 🚬</h1>
         <p>
@@ -128,7 +127,7 @@ export default function App() {
 
   // if there are no batz from collection in wallet, display button to mint
   return (
-    <div className="container">
+    <div className="container" id="root">
       <h1>🦇 batz.defi NFT Lounge 🕸️</h1>
       <h1>🍸🦐 🚬</h1>
       <p className="address">
