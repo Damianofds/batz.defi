@@ -84,7 +84,7 @@ export default function Home() {
   //if there isn't a wallet connected, display our connect MetaMask button
   if (!address) {
     return (
-      <div className="container" id="root">
+      <div className="container">
         <h1>🦇 batz.defi NFT Lounge 🕸️</h1>
         <h1>🍸🦐 🚬</h1>
         <h2> Own one of the batz,<br />get access to the cave.</h2>
@@ -97,7 +97,7 @@ export default function Home() {
 
   if (checking) {
     return (
-      <div className="container" id="root">
+      <div className="container">
         <h1>🦇 batz.defi NFT Lounge 🕸️</h1>
         <h1>🍸🦐 🚬</h1>
         <h1>Checking your wallet...</h1>
@@ -108,7 +108,7 @@ export default function Home() {
   // if the user is connected and has an NFT from the drop, display text
   if (hasClaimedNFT) {
     return (
-      <div className="container" id="root">
+      <div className="container">
         <h1>🦇 batz.defi NFT Lounge 🕸️</h1>
         <h1>🍸🦐 🚬</h1>
         <p>
@@ -127,7 +127,7 @@ export default function Home() {
 
   // if there are no batz from collection in wallet, display button to mint
   return (
-    <div className="container" id="root">
+    <div className="container">
       <h1>🦇 batz.defi NFT Lounge 🕸️</h1>
       <h1>🍸🦐 🚬</h1>
       <p className="address">
