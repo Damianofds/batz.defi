@@ -99,7 +99,7 @@ body {
   opacity: 0.5;
 }
 
-.address {
+p {
   font-size: 1.5rem;
   margin-bottom: 16px;
 }
@@ -143,4 +143,8 @@ a{
 #main{
   border-right: dotted 20px;
   border-left: dotted 20px;
+}
+
+.batz-main-image{
+  height: 400px;
 }

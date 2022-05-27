@@ -86,9 +86,9 @@ export default function Home() {
     return (
       <div>
         <div className="container">
-          <p>
+          <span>
             <img class="opensea-icon" src="https://storage.googleapis.com/opensea-static/Logomark/Logomark-Transparent%20White.png" /> View <a href="https://testnets.opensea.io/collection/batz-defi" target="_blank">defi.bats</a> on OpenSea!
-          </p>
+          </span>
         </div>
         <div className="container" id="main">
           <h1>🦇 batz.defi NFT Lounge 🕸️</h1>
@@ -114,7 +114,7 @@ export default function Home() {
       <div className="container">
         <h1>🦇 batz.defi NFT Lounge 🕸️</h1>
         <h1>🍸🦐 🚬</h1>
-        <h1>Checking your wallet...</h1>
+        <p>Checking your wallet...</p>
       </div>
     );
   }
@@ -125,32 +125,51 @@ export default function Home() {
       <div className="container">
         <h1>🦇 batz.defi NFT Lounge 🕸️</h1>
         <h1>🍸🦐 🚬</h1>
-        <p>
-          Everybody can visit my website,
-        </p>
-        <p>
-          but only members of cryptobats can reach it from this exact link!
-        </p>
-        <p>
-                       👇 👇 👇
-        </p>
-        <a href="https://damianofds.github.io/">https://damianofds.github.io/</a>
+        <table>
+          <tr>
+            <tc><strong>cost</strong>  - </tc>
+            <tc>0.01ETH / 50$</tc>
+          </tr>
+          <tr>
+            <tc><strong>gain</strong> - </tc>
+            <tc>0.001ETH / 20$</tc>
+          </tr>
+        </table>
+        <img class="batz-main-image" src="https://lh3.googleusercontent.com/8xhM8r2ih8JcM9H_lT4I_FoZQK6tDKCFLwxDx3HYI9x48gxbV4mEVja7ojDb3av4g0Z3AM_5_1-MeSgeca-GtFLWTbzFSegl7Gif=s0" />
       </div>
     );
   }
 
   // if there are no batz from collection in wallet, display button to mint
   return (
-    <div className="container">
-      <h1>🦇 batz.defi NFT Lounge 🕸️</h1>
-      <h1>🍸🦐 🚬</h1>
-      <p className="address">
-        There are no batz Membership NFTs held by:{" "}
-        <span className="value">{truncateAddress(address)}</span>
+
+
+    <div>
+        <div className="container">
+          <span>
+            <img class="opensea-icon" src="https://storage.googleapis.com/opensea-static/Logomark/Logomark-Transparent%20White.png" /> View <a href="https://testnets.opensea.io/collection/batz-defi" target="_blank">defi.bats</a> on OpenSea!
+          </span>
+        </div>
+        <div className="container" id="main">
+          <h1>🦇 batz.defi NFT Lounge 🕸️</h1>
+          <h1>🍸🦐 🚬</h1>
+          <p>
+        No batz in your wallet <span className="value">{truncateAddress(address)}</span>
+        <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;👇
+        </p>
       </p>
       <button className="btn" disabled={isClaiming} onClick={mintNft}>
         {isClaiming ? "Claiming..." : "Mint a Batz"}
       </button>
-    </div>
+          <br />
+          <br />
+        </div>
+        <div className="container">
+          <img class="cryptobatz-icon" src="https://www.cryptobatz.com/images/team/ozzy.png" />
+          <div class="left">Hey! We are not alone in Metaverse,</div>
+          <div class="right">Check out <a href="https://cryptobatz.com" target="_blank">these cool batz</a> also! </div>
+        </div>
+      </div>
   );
 }
