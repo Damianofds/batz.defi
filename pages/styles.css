@@ -83,7 +83,7 @@ body {
   min-width: 3rem;
   font-size: 1rem;
   background: #e5e5ea;
-  background-image: linear-gradient(to left, #88067f 0%, #cee710 101.52%);
+  background-image: linear-gradient(to right, #88067f 60%, #cee710 101.52%);
   color: #fff;
   width: 180px;
   text-align: center;
@@ -111,6 +111,36 @@ body {
   justify-content: center;
 }
 
+h1 {
+  color: #88067f;
+}
+
 h2 {
   font-size: 2rem;
+}
+
+
+.opensea-icon{
+  height: 20px;
+}
+
+.cryptobatz-icon{
+  height: 80px;
+}
+
+a{
+  color: #cee710;
+}
+
+.left{
+  text-align: left;
+}
+
+.right{
+  text-align: right;
+}
+
+#main{
+  border-right: dotted 20px;
+  border-left: dotted 20px;
 }

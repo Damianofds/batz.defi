@@ -1,7 +1,6 @@
 import React from "react";
 import Home from "./Home";
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
-import GitHubLink from "../components/GitHubLink";
 import "./styles.css";
 
 function MyApp({ Component, pageProps }) {
@@ -11,7 +10,6 @@ function MyApp({ Component, pageProps }) {
       <React.StrictMode>
         <ThirdwebProvider desiredChainId={activeChainId}>
           <Home />
-          <GitHubLink />
         </ThirdwebProvider>
       </React.StrictMode>
   );

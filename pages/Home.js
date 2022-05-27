@@ -84,13 +84,27 @@ export default function Home() {
   //if there isn't a wallet connected, display our connect MetaMask button
   if (!address) {
     return (
-      <div className="container">
-        <h1>🦇 batz.defi NFT Lounge 🕸️</h1>
-        <h1>🍸🦐 🚬</h1>
-        <h2> Own one of the batz,<br />get access to the cave.</h2>
-        <button className="btn" onClick={connectWithMetamask}>
-          Connect MetaMask
-        </button>
+      <div>
+        <div className="container">
+          <p>
+            <img class="opensea-icon" src="https://storage.googleapis.com/opensea-static/Logomark/Logomark-Transparent%20White.png" /> View <a href="https://testnets.opensea.io/collection/batz-defi" target="_blank">defi.bats</a> on OpenSea!
+          </p>
+        </div>
+        <div className="container" id="main">
+          <h1>🦇 batz.defi NFT Lounge 🕸️</h1>
+          <h1>🍸🦐 🚬</h1>
+          <h2> Own one of the batz,<br />get access to the cave.</h2>
+          <button className="btn" onClick={connectWithMetamask}>
+            Connect MetaMask
+          </button>
+          <br />
+          <br />
+        </div>
+        <div className="container">
+          <img class="cryptobatz-icon" src="https://www.cryptobatz.com/images/team/ozzy.png" />
+          <div class="left">Hey! We are not alone in Metaverse,</div>
+          <div class="right">Check out <a href="https://cryptobatz.com" target="_blank">these cool batz</a> also! </div>
+        </div>
       </div>
     );
   }
