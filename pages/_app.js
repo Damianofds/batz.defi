@@ -1,5 +1,6 @@
 import React from "react";
-import { Home, TheCave } from "./Home";
+import { Home } from "../components/Home";
+import { TheCave } from "../components/TheCave";
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 import "./styles.css";
 
