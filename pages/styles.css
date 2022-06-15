@@ -113,6 +113,7 @@ p {
 
 h1 {
   color: #88067f;
+  text-align: center;
 }
 
 h2 {
@@ -141,10 +142,23 @@ a{
 }
 
 #main{
-  border-right: dotted 20px;
-  border-left: dotted 20px;
+  /* border-right: dotted 20px;
+  border-left: dotted 20px; */
 }
 
 .batz-main-image{
   height: 400px;
+}
+
+.td-left{
+  padding-left: 40px;
+}
+
+body {
+  caret-color: rgba(0, 0, 0, 0);
+  overflow: scroll;
+}
+
+.gain{
+  color: green;
 }

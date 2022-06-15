@@ -14,8 +14,7 @@ function truncateAddress(address) {
   return `${address.slice(0, 6)}...${address.slice(-4)}`;
 }
 
-export function TheCave(){  
-  
+export default function Home() {
   // allow user to connect to app with metamask, and obtain address
   const address = useAddress();
   const connectWithMetamask = useMetamask();
@@ -32,10 +31,11 @@ export function TheCave(){
   const [nftImage, setNftImage] = useState(false);
 
   useEffect(() => {
-    // If they don't have a connected wallet, return
+    // If they don't have an connected wallet, return
     if (!address) {
       return;
     }
+
     const checkBalance = async () => {
       try {
         const nfts = await editionDrop.getOwned(address);
@@ -43,87 +43,6 @@ export function TheCave(){
         setChecking(false);
         setIsClaiming(false);
         setNftImage(nfts.map((e)=>e.metadata.image));
-      } catch (error) {
-        setHasClaimedNFT(false);
-        setChecking(false);
-        console.error("Failed to get NFTs", error);
-      }
-    };
-    checkBalance();
-  }, [
-    address,
-    connectWithMetamask,
-    networkMismatched,
-    editionDrop,
-    switchNetwork,
-  ]);
-
-  // if the user is connected and has an NFT from the drop, display text
-  if (hasClaimedNFT) {
-    return (
-      <div>
-        <h1>🦇 batz.defi NFT Lounge 🕸️</h1>
-        <h1>🍸🦐 🚬</h1>
-        <div className="scrollable-div">
-          <table >
-            <tbody>
-
-              <tr hidden> {/* what the fuuuuck! */}
-                <td><img className="batz-main-image" src={nftImage[0]}/></td>
-                <td className="td-left">
-                  <div>VALUE</div>
-                  <span>&nbsp;&nbsp;&nbsp;<strong>60$</strong></span><span className="gain"><strong>&nbsp;+10$</strong><strong>&nbsp;+20%</strong></span>
-                </td>
-              </tr> 
-              {nftImage.map((item) => (
-                <tr>
-                  <td><img className="batz-main-image" src={item}/></td>
-                  <td className="td-left">
-                    <div>VALUE</div>
-                    <span>&nbsp;&nbsp;&nbsp;<strong>60$</strong></span><span className="gain"><strong>&nbsp;+10$</strong><strong>&nbsp;+20%</strong></span>
-                  </td>
-                </tr>  
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <br />
-        {/* <button className="btn" disabled={isClaiming} onClick={mintNft}>
-          {isClaiming ? "Claiming..." : "Mint a Batz"}
-        </button> */}
-      </div>
-    );
-  }
-  return null;
-}
-
-export function Home() {
-  // allow user to connect to app with metamask, and obtain address
-  const address = useAddress();
-  const connectWithMetamask = useMetamask();
-  const networkMismatched = useNetworkMismatch();
-  const [, switchNetwork] = useNetwork(); // Switch network
-
-  // Replace this address with your NFT Drop address!
-  const editionDrop = useNFTDrop(
-    "0x47FD86648a1A316e091C73B49D5c6C17d0aCF4c1"
-  );
-  const [checking, setChecking] = useState(true);
-  const [hasClaimedNFT, setHasClaimedNFT] = useState(false);
-  const [isClaiming, setIsClaiming] = useState(false);
-
-  useEffect(() => {
-    // If they don't have a connected wallet, return
-    if (!address) {
-      return;
-    }
-
-    const checkBalance = async () => {
-      try {
-        const nfts = await editionDrop.getOwned(address);
-        setHasClaimedNFT(nfts?.length > 0);
-        setChecking(false);
-        setIsClaiming(false);
       } catch (error) {
         setHasClaimedNFT(false);
         setChecking(false);
@@ -202,8 +121,38 @@ export function Home() {
     );
   }
 
+  // if the user is connected and has an NFT from the drop, display text
   if (hasClaimedNFT) {
-    return null;
+    return (
+      <div className="scrollable-div">
+        <h1>🦇 batz.defi NFT Lounge 🕸️</h1>
+        <h1>🍸🦐 🚬</h1>
+        <table>
+          <tbody>
+            <tr>
+              <td><img className="batz-main-image" src={nftImage[0]}/></td>
+              <td className="td-left">
+                <h2><span><strong>GAIN: 10$</strong></span></h2>
+                {/* <h4><span><strong>20%</strong></span></h4> */}
+                <div>COST: 50$</div>
+              </td>
+            </tr>
+            <tr>
+              <td><img className="batz-main-image" src={nftImage[1]}/></td>
+              <td className="td-left">
+                <h2><span><strong>GAIN: 5$</strong></span></h2>
+                {/* <h4><span><strong>10%</strong></span></h4> */}
+                <div>COST: 50$</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <button className="btn" disabled={isClaiming} onClick={mintNft}>
+          {isClaiming ? "Claiming..." : "Mint a Batz"}
+        </button>
+      </div>
+    );
   }
 
   // if there are no batz from collection in wallet, display button to mint

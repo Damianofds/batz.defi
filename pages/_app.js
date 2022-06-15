@@ -1,5 +1,5 @@
 import React from "react";
-import Home from "./Home";
+import { Home, TheCave } from "./Home";
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 import "./styles.css";
 
@@ -10,6 +10,7 @@ function MyApp({ Component, pageProps }) {
       <React.StrictMode>
         <ThirdwebProvider desiredChainId={activeChainId}>
           <Home />
+          <TheCave />
         </ThirdwebProvider>
       </React.StrictMode>
   );
