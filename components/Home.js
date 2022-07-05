@@ -14,6 +14,8 @@ function truncateAddress(address) {
   return `${address.slice(0, 6)}...${address.slice(-4)}`;
 }
 
+import { mintNft } from "./services.js";
+
 export function Home() {
   // allow user to connect to app with metamask, and obtain address
   const address = useAddress();
@@ -56,31 +58,6 @@ export function Home() {
     switchNetwork,
   ]);
 
-  const mintNft = async () => {
-    try {
-      // If they don't have an connected wallet, ask them to connect!
-      if (!address) {
-        connectWithMetamask();
-        return;
-      }
-
-      // Ensure they're on the right network (mumbai)
-      if (networkMismatched) {
-        switchNetwork(ChainId.Mumbai);
-        return;
-      }
-
-      setIsClaiming(true);
-      await editionDrop.claim(1);
-      setHasClaimedNFT(true);
-    } catch (error) {
-      setHasClaimedNFT(false);
-      console.error("Failed to mint NFT", error);
-    } finally {
-      setIsClaiming(false);
-    }
-  };
-
   //if there isn't a wallet connected, display our connect MetaMask button
   if (!address) {
     return (
@@ -91,7 +68,8 @@ export function Home() {
           </span>
         </div>
         <div className="container" id="main">
-          <h1>🦇 batz.defi NFT Lounge 🕸️</h1>
+          <h1>🦇🕸️</h1>
+          <img src="batz.defi-logo.svg"/>
           <h1>🍸🦐 🚬</h1>
           <h2> Own one of the batz,<br />get access to the cave.</h2>
           <button className="btn" onClick={connectWithMetamask}>
@@ -112,7 +90,8 @@ export function Home() {
   if (checking) {
     return (
       <div className="container">
-        <h1>🦇 batz.defi NFT Lounge 🕸️</h1>
+        <h1>🦇🕸️</h1>
+          <img src="batz.defi-logo.svg"/>
         <h1>🍸🦐 🚬</h1>
         <p>Checking your wallet...</p>
       </div>
@@ -125,8 +104,6 @@ export function Home() {
 
   // if there are no batz from collection in wallet, display button to mint
   return (
-
-
     <div>
         <div className="container">
           <span>
@@ -134,17 +111,18 @@ export function Home() {
           </span>
         </div>
         <div className="container" id="main">
-          <h1>🦇 batz.defi NFT Lounge 🕸️</h1>
+          <h1>🦇🕸️</h1>
+          <img src="batz.defi-logo.svg"/>
           <h1>🍸🦐 🚬</h1>
           <p>
-        No batz in your wallet <span className="value">{truncateAddress(address)}</span>
-        <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;👇
-        </p>
-      </p>
-      <button className="btn" disabled={isClaiming} onClick={mintNft}>
-        {isClaiming ? "Claiming..." : "Mint a Batz"}
-      </button>
+            No batz in your wallet <span className="value">{truncateAddress(address)}</span>
+            <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;👇
+            </p>
+          </p>
+          <button className="btn" disabled={isClaiming} onClick={mintNft}>
+            {isClaiming ? "Claiming..." : "Mint a Batz"}
+          </button>
           <br />
           <br />
         </div>
